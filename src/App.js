@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import ComboBox from './components/select';
+import ContainedButton from './components/button';
+import CitySet from './components/citySet';
+import DiscreteSlider from './components/filter';
 import './App.css';
 
 function App() {
+  const [city, setCity] = React.useState('');
+  const [citySet, setCitySet] = React.useState([]);
+  const [tempFilter, setTempFilter] = React.useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="header">
+        <ComboBox setCity={setCity} city = {city} />
+        <ContainedButton setCitySet={setCitySet} city={city} setCity={setCity} citySet={citySet} />
+        <DiscreteSlider tempFilter={tempFilter} setTempFilter={setTempFilter} />
+      </div>
+      <CitySet citySet = {citySet} tempFilter={tempFilter} />
     </div>
   );
 }

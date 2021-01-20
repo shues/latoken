@@ -29,7 +29,8 @@ export default function ComboBox(props) {
         console.log(Event.target.value);
       }
 //      const url =
-      const response = await fetch('getcity.php?city=' + props.city);
+      const response = await fetch('https://testcadexchange.000webhostapp.com/getcity.php?city=' + props.city);
+      console.log(props.city);
 //      await sleep(1000); // For demo purposes.
       const countries = await response.json();
 
